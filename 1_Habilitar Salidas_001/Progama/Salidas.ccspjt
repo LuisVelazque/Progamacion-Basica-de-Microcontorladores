@@ -1,0 +1,20 @@
+[PROJECT]
+Target=Salidas.hex
+Processor_Text=PIC16F877
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=Salidas.c
+[Directories]
+Include=D:\Programas Escuela\CCS\PICC\Devices\;D:\Programas Escuela\CCS\PICC\Drivers\
+[Salidas.c]
+Type=4
+[mru-list]
+1=Salidas.c
+[Opened Files]
+1=..\..\2_Habilitar Salidas_002\Programa\Salida2.c
+2=
+3=
+[Units]
+Count=1
+1=Salidas (main)

@@ -1,0 +1,21 @@
+[PROJECT]
+Target=Secuenci_001.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=Secuenci_001.c
+[Directories]
+Include=D:\Programas Escuela\CCS\PICC\Devices\;D:\Programas Escuela\CCS\PICC\Drivers\
+[Secuenci_001.c]
+Type=4
+[mru-list]
+1=Secuenci_001.c
+[Opened Files]
+1=..\..\3_Entradas_001\Programa\Entrada_001.c
+2=Secuenci_001.c
+3=..\..\9_LCD\Programa\LCD_001.c
+4=
+[Units]
+Count=1
+1=Secuenci_001 (main)

@@ -1,0 +1,86 @@
+CCS PCM C Compiler, Version 5.015, 5967               18-mar.-22 18:51
+
+               Filename:   C:\Users\donke\OneDrive\Escritorio\Micro c\3_Entradas_001\Programa\Entrada_001.lst
+
+               ROM used:   33 words (0%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           6 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16f877a.h>      
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #fuses HS, NOWDT, NOPUT, NOLVP, NOPROTECT, BROWNOUT 
+.................... #use delay(clock=20M)  
+.................... #use fast_io(B) 
+.................... #use standard_io(D) // Activa el puerto D 
+....................  
+.................... void main () 
+0004:  MOVF   03,W
+0005:  ANDLW  1F
+0006:  MOVWF  03
+0007:  BSF    03.5
+0008:  BSF    1F.0
+0009:  BSF    1F.1
+000A:  BSF    1F.2
+000B:  BCF    1F.3
+000C:  MOVLW  07
+000D:  MOVWF  1C
+000E:  BCF    03.7
+.................... { 
+....................    set_tris_b(0b11111111); // se habilita el puerto b como entrada 
+000F:  MOVLW  FF
+0010:  MOVWF  06
+....................    output_low(PIN_D6);   // inicia el pin D6 en 0 
+0011:  BCF    08.6
+0012:  BCF    03.5
+0013:  BCF    08.6
+....................     
+....................    while(true) 
+....................    { 
+....................       if(input(PIN_B0) == 1)  // SI el pulsador esta presionado 
+0014:  BTFSS  06.0
+0015:  GOTO   01B
+....................       { 
+....................          output_high(PIN_D6); // Pon en 1 la salida 
+0016:  BSF    03.5
+0017:  BCF    08.6
+0018:  BCF    03.5
+0019:  BSF    08.6
+....................       } 
+001A:  GOTO   01F
+....................       else  //Si NO esta presionado el pulsador, entonces. 
+....................       { 
+....................          output_low(PIN_D6); //pon la salida en 0 
+001B:  BSF    03.5
+001C:  BCF    08.6
+001D:  BCF    03.5
+001E:  BCF    08.6
+....................       } 
+001F:  GOTO   014
+....................    } 
+.................... } 
+....................  
+0020:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F7A   HS NOWDT NOPUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

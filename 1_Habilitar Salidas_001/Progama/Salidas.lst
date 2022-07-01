@@ -1,0 +1,66 @@
+CCS PCM C Compiler, Version 5.015, 5967               16-mar.-22 09:37
+
+               Filename:   C:\Users\donke\OneDrive\Escritorio\Micro c\1_Habilitar Salidas_001\Progama\Salidas.lst
+
+               ROM used:   21 words (0%)
+                           Largest free fragment is 2048
+               RAM used:   5 (1%) at main() level
+                           5 (1%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16f877.h> 
+.................... //////////// Standard Header file for the PIC16F877 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877 
+....................  
+.................... #list 
+....................  
+.................... #fuses HS,NOWDT,NOPUT,NOLVP,NOPROTECT,BROWNOUT 
+.................... #use delay(clock=20M) 
+.................... #use fast_io(B) 
+....................  
+.................... void main() 
+0004:  MOVF   03,W
+0005:  ANDLW  1F
+0006:  MOVWF  03
+0007:  BSF    03.5
+0008:  BSF    1F.0
+0009:  BSF    1F.1
+000A:  BSF    1F.2
+000B:  BCF    1F.3
+000C:  BCF    03.7
+.................... { 
+....................   set_tris_b(0b00000000); 
+000D:  MOVLW  00
+000E:  MOVWF  06
+....................   output_b(0b00000000); 
+000F:  BCF    03.5
+0010:  CLRF   06
+....................   
+....................   while(true) 
+....................   { 
+....................   output_b(0b00001001); 
+0011:  MOVLW  09
+0012:  MOVWF  06
+0013:  GOTO   011
+....................   } 
+.................... } 
+....................  
+0014:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F7A   HS NOWDT NOPUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT
