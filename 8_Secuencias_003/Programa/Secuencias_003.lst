@@ -1,0 +1,321 @@
+CCS PCM C Compiler, Version 5.015, 5967               18-mar.-22 17:56
+
+               Filename:   C:\Users\donke\OneDrive\Escritorio\Micro c\8_Secuencias_003\Programa\Secuencias_003.lst
+
+               ROM used:   201 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   10 (3%) at main() level
+                           10 (3%) worst case
+               Stack used: 1 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   018
+0003:  NOP
+.................... #include <16f877a.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #fuses HS,NOWDT,NOPUT,NOLVP,NOPROTECT,BROWNOUT 
+.................... #use delay(clock=20M) 
+0004:  MOVLW  24
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  06
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  7B
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+.................... #use standard_io(B) 
+.................... #use fast_io(D) 
+....................  
+.................... int tiempo=1000; // se declara una constante con valor numerico entero. 
+.................... int i1; // se declaran las i1, i2 y i3, pueden declararse en la sentencia FOR después del abrir el paréntesis  
+.................... int i2; 
+.................... int i3; 
+.................... void main() 
+0018:  MOVF   03,W
+0019:  ANDLW  1F
+001A:  MOVWF  03
+001B:  MOVLW  E8
+001C:  MOVWF  20
+001D:  BSF    03.5
+001E:  BSF    1F.0
+001F:  BSF    1F.1
+0020:  BSF    1F.2
+0021:  BCF    1F.3
+0022:  MOVLW  07
+0023:  MOVWF  1C
+0024:  BCF    03.7
+.................... { 
+....................    set_tris_d(0b00000000); 
+0025:  MOVLW  00
+0026:  MOVWF  08
+....................    output_d(0b00000000); 
+0027:  BCF    03.5
+0028:  CLRF   08
+....................     
+....................    while(true) 
+....................    { 
+....................       if(input(PIN_B0) == 1) // si se presiona el pulsador de B0 
+0029:  BSF    03.5
+002A:  BSF    06.0
+002B:  BCF    03.5
+002C:  BTFSS  06.0
+002D:  GOTO   05D
+....................       { 
+....................          for(i1=0; i1<3; i1++) // comienza en cero; si es menor de 4 veces; entonces incrementa hata 4 veces. 
+002E:  CLRF   21
+002F:  MOVF   21,W
+0030:  SUBLW  02
+0031:  BTFSS  03.0
+0032:  GOTO   05D
+....................          { 
+....................             output_d(0b00000001); 
+0033:  MOVLW  01
+0034:  MOVWF  08
+....................             delay_ms(tiempo); 
+0035:  MOVF   20,W
+0036:  MOVWF  24
+0037:  CALL   004
+....................             output_d(0b00000010); 
+0038:  MOVLW  02
+0039:  MOVWF  08
+....................             delay_ms(tiempo); 
+003A:  MOVF   20,W
+003B:  MOVWF  24
+003C:  CALL   004
+....................             output_d(0b00000100); 
+003D:  MOVLW  04
+003E:  MOVWF  08
+....................             delay_ms(tiempo); 
+003F:  MOVF   20,W
+0040:  MOVWF  24
+0041:  CALL   004
+....................             output_d(0b00001000); 
+0042:  MOVLW  08
+0043:  MOVWF  08
+....................             delay_ms(tiempo); 
+0044:  MOVF   20,W
+0045:  MOVWF  24
+0046:  CALL   004
+....................             output_d(0b00010000); 
+0047:  MOVLW  10
+0048:  MOVWF  08
+....................             delay_ms(tiempo); 
+0049:  MOVF   20,W
+004A:  MOVWF  24
+004B:  CALL   004
+....................             output_d(0b00100000); 
+004C:  MOVLW  20
+004D:  MOVWF  08
+....................             delay_ms(tiempo); 
+004E:  MOVF   20,W
+004F:  MOVWF  24
+0050:  CALL   004
+....................             output_d(0b01000000); 
+0051:  MOVLW  40
+0052:  MOVWF  08
+....................             delay_ms(tiempo); 
+0053:  MOVF   20,W
+0054:  MOVWF  24
+0055:  CALL   004
+....................             output_d(0b10000000); 
+0056:  MOVLW  80
+0057:  MOVWF  08
+....................             delay_ms(tiempo); 
+0058:  MOVF   20,W
+0059:  MOVWF  24
+005A:  CALL   004
+005B:  INCF   21,F
+005C:  GOTO   02F
+....................          } 
+....................       } 
+....................       if(input(PIN_B1) == 1) // si se presiona el pulsador de B1 
+005D:  BSF    03.5
+005E:  BSF    06.1
+005F:  BCF    03.5
+0060:  BTFSS  06.1
+0061:  GOTO   091
+....................       { 
+....................          for(i2=0; i2<3; i2++) 
+0062:  CLRF   22
+0063:  MOVF   22,W
+0064:  SUBLW  02
+0065:  BTFSS  03.0
+0066:  GOTO   091
+....................          { 
+....................             output_d(0b10000000); 
+0067:  MOVLW  80
+0068:  MOVWF  08
+....................             delay_ms(tiempo); 
+0069:  MOVF   20,W
+006A:  MOVWF  24
+006B:  CALL   004
+....................             output_d(0b01000000); 
+006C:  MOVLW  40
+006D:  MOVWF  08
+....................             delay_ms(tiempo); 
+006E:  MOVF   20,W
+006F:  MOVWF  24
+0070:  CALL   004
+....................             output_d(0b00100000); 
+0071:  MOVLW  20
+0072:  MOVWF  08
+....................             delay_ms(tiempo); 
+0073:  MOVF   20,W
+0074:  MOVWF  24
+0075:  CALL   004
+....................             output_d(0b00010000); 
+0076:  MOVLW  10
+0077:  MOVWF  08
+....................             delay_ms(tiempo); 
+0078:  MOVF   20,W
+0079:  MOVWF  24
+007A:  CALL   004
+....................             output_d(0b00001000); 
+007B:  MOVLW  08
+007C:  MOVWF  08
+....................             delay_ms(tiempo); 
+007D:  MOVF   20,W
+007E:  MOVWF  24
+007F:  CALL   004
+....................             output_d(0b00000100); 
+0080:  MOVLW  04
+0081:  MOVWF  08
+....................             delay_ms(tiempo); 
+0082:  MOVF   20,W
+0083:  MOVWF  24
+0084:  CALL   004
+....................             output_d(0b00000010); 
+0085:  MOVLW  02
+0086:  MOVWF  08
+....................             delay_ms(tiempo); 
+0087:  MOVF   20,W
+0088:  MOVWF  24
+0089:  CALL   004
+....................             output_d(0b00000001); 
+008A:  MOVLW  01
+008B:  MOVWF  08
+....................             delay_ms(tiempo); 
+008C:  MOVF   20,W
+008D:  MOVWF  24
+008E:  CALL   004
+008F:  INCF   22,F
+0090:  GOTO   063
+....................          } 
+....................       }      
+....................       if(input(PIN_B2) == 1) // si se presiona el pulsador de B2 
+0091:  BSF    03.5
+0092:  BSF    06.2
+0093:  BCF    03.5
+0094:  BTFSS  06.2
+0095:  GOTO   0C6
+....................       { 
+....................          for(i3=0; i3<3; i3++) 
+0096:  CLRF   23
+0097:  MOVF   23,W
+0098:  SUBLW  02
+0099:  BTFSS  03.0
+009A:  GOTO   0C5
+....................          { 
+....................             output_d(0b10000001); 
+009B:  MOVLW  81
+009C:  MOVWF  08
+....................             delay_ms(tiempo); 
+009D:  MOVF   20,W
+009E:  MOVWF  24
+009F:  CALL   004
+....................             output_d(0b01000010); 
+00A0:  MOVLW  42
+00A1:  MOVWF  08
+....................             delay_ms(tiempo); 
+00A2:  MOVF   20,W
+00A3:  MOVWF  24
+00A4:  CALL   004
+....................             output_d(0b00100100); 
+00A5:  MOVLW  24
+00A6:  MOVWF  08
+....................             delay_ms(tiempo); 
+00A7:  MOVF   20,W
+00A8:  MOVWF  24
+00A9:  CALL   004
+....................             output_d(0b00011000); 
+00AA:  MOVLW  18
+00AB:  MOVWF  08
+....................             delay_ms(tiempo); 
+00AC:  MOVF   20,W
+00AD:  MOVWF  24
+00AE:  CALL   004
+....................             output_d(0b00011000); 
+00AF:  MOVLW  18
+00B0:  MOVWF  08
+....................             delay_ms(tiempo); 
+00B1:  MOVF   20,W
+00B2:  MOVWF  24
+00B3:  CALL   004
+....................             output_d(0b00100100); 
+00B4:  MOVLW  24
+00B5:  MOVWF  08
+....................             delay_ms(tiempo); 
+00B6:  MOVF   20,W
+00B7:  MOVWF  24
+00B8:  CALL   004
+....................             output_d(0b01000010); 
+00B9:  MOVLW  42
+00BA:  MOVWF  08
+....................             delay_ms(tiempo); 
+00BB:  MOVF   20,W
+00BC:  MOVWF  24
+00BD:  CALL   004
+....................             output_d(0b10000001); 
+00BE:  MOVLW  81
+00BF:  MOVWF  08
+....................             delay_ms(tiempo); 
+00C0:  MOVF   20,W
+00C1:  MOVWF  24
+00C2:  CALL   004
+00C3:  INCF   23,F
+00C4:  GOTO   097
+....................          } 
+....................       } 
+00C5:  GOTO   0C7
+....................        
+....................       else 
+....................       { 
+....................          output_d(0b00000000); // SI NO se presiona ningun pulsador, entonces el puerto debe estar apagado. 
+00C6:  CLRF   08
+....................       } 
+00C7:  GOTO   029
+....................    } 
+.................... } 
+....................  
+00C8:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F7A   HS NOWDT NOPUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

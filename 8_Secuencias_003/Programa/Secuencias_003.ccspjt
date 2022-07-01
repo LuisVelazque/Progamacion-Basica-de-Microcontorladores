@@ -1,0 +1,23 @@
+[PROJECT]
+Target=Secuencias_003.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=Secuencias_003.c
+[Directories]
+Include=D:\Programas Escuela\CCS\PICC\Devices\;D:\Programas Escuela\CCS\PICC\Drivers\
+[Secuencias_003.c]
+Type=4
+[mru-list]
+1=Secuencias_003.c
+[Opened Files]
+1=..\..\3_Entradas_001\Programa\Entrada_001.c
+2=..\..\7_Secuencias de luces_001\Programa\Secuenci_001.c
+3=..\..\9_LCD\Programa\LCD_001.c
+4=Secuencias_003.c
+5=..\..\10_Diplay\Programa\Display_001.c
+6=
+[Units]
+Count=1
+1=Secuencias_003 (main)

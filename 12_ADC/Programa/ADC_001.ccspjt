@@ -1,0 +1,24 @@
+[PROJECT]
+Target=ADC_001.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=ADC_001.c
+[Directories]
+Include=D:\Programas Escuela\CCS\PICC\Devices\;D:\Programas Escuela\CCS\PICC\Drivers\
+[ADC_001.c]
+Type=4
+[mru-list]
+1=ADC_001.c
+[Opened Files]
+1=..\..\3_Entradas_001\Programa\Entrada_001.c
+2=..\..\7_Secuencias de luces_001\Programa\Secuenci_001.c
+3=..\..\9_LCD\Programa\LCD_001.c
+4=..\..\8_Secuencias_003\Programa\Secuencias_003.c
+5=..\..\11_Teclado 4x3_001\Programa\Teclado_001.c
+6=ADC_001.c
+7=
+[Units]
+Count=1
+1=ADC_001 (main)

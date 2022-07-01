@@ -1,0 +1,16 @@
+[PROJECT]
+Target=Display_001.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=Display_001.c
+[Directories]
+Include=D:\Programas Escuela\CCS\PICC\Devices\;D:\Programas Escuela\CCS\PICC\Drivers\
+[Display_001.c]
+Type=4
+[mru-list]
+1=Display_001.c
+[Units]
+Count=1
+1=Display_001 (main)
